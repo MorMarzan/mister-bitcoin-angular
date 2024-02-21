@@ -1,0 +1,21 @@
+.contact-preview {
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #79C8C7;
+    border-radius: 20px;
+    display: grid;
+    align-content: space-between;
+
+    .email {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: inherit;
+    }
+
+    .btn-container {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        gap: 5px;
+    }
+}

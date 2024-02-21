@@ -1,0 +1,11 @@
+@import "../../../assets/styles/setup/variables";
+
+.contact-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: unset;
+    margin-block-end: 10px;
+}

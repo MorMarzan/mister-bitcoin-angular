@@ -1,1 +1,10 @@
-<p>contact-preview works!</p>
+<section class="contact-preview">
+    <h2>{{ contact.name }}</h2>
+    <p class="email">{{ contact.email }}</p>
+    <p>{{ contact.phone }}</p>
+    <div class="btn-container">
+        <button (click)="onRemoveContact()">x</button>
+        <!-- <RouterLink :to="`/contact/${contact._id}`"><button>Details</button></RouterLink> -->
+        <!-- <RouterLink :to="`/contact/edit/${contact._id}`"><button>Edit</button></RouterLink> -->
+    </div>
+</section>
