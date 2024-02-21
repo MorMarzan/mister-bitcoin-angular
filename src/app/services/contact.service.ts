@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Observable, BehaviorSubject, throwError, from, tap, retry, catchError } from 'rxjs'
-import { Contact } from '../models/contact.model'
+import { Contact, ContactFilter } from '../models/contact.model'
 import { storageService } from './async-storage.service'
 import { HttpErrorResponse } from '@angular/common/http'
 const ENTITY = 'contacts'
@@ -12,6 +12,9 @@ export class ContactService {
 
   private _contacts$ = new BehaviorSubject<Contact[]>([])
   public contacts$ = this._contacts$.asObservable()
+
+  private _filterBy$ = new BehaviorSubject<ContactFilter>({ term: '' });
+  public filterBy$ = this._filterBy$.asObservable()
 
   constructor() {
     // Handling Demo Data, fetching from storage || saving to storage 
@@ -25,10 +28,7 @@ export class ContactService {
     return from(storageService.query<Contact>(ENTITY))
       .pipe(
         tap(contacts => {
-          const filterBy = { term: '' }
-          if (filterBy && filterBy.term) {
-            contacts = this._filter(contacts, filterBy.term)
-          }
+          const filterBy = this._filterBy$.value
           contacts = contacts.filter(contact => contact.name.toLowerCase().includes(filterBy.term.toLowerCase()))
           this._contacts$.next(this._sort(contacts))
         }),
@@ -104,14 +104,18 @@ export class ContactService {
     })
   }
 
-  private _filter(contacts: Contact[], term: string) {
-    term = term.toLocaleLowerCase()
-    return contacts.filter(contact => {
-      return contact.name.toLocaleLowerCase().includes(term) ||
-        contact.phone.toLocaleLowerCase().includes(term) ||
-        contact.email.toLocaleLowerCase().includes(term)
-    })
+  public setFilter(filterBy: ContactFilter) {
+    this._filterBy$.next(filterBy)
+    this.loadContacts().subscribe()
   }
+  // private _filter(contacts: Contact[], term: string) {
+  //   term = term.toLocaleLowerCase()
+  //   return contacts.filter(contact => {
+  //     return contact.name.toLocaleLowerCase().includes(term) ||
+  //       contact.phone.toLocaleLowerCase().includes(term) ||
+  //       contact.email.toLocaleLowerCase().includes(term)
+  //   })
+  // }
 
   private _createContacts() {
     const contacts = [
