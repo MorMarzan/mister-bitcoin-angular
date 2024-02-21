@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core'
 import { Observable, BehaviorSubject, throwError, from, tap, retry, catchError } from 'rxjs'
-import { Contact } from '../models/contact'
+import { Contact } from '../models/contact.model'
 import { storageService } from './async-storage.service'
 import { HttpErrorResponse } from '@angular/common/http'
 const ENTITY = 'contacts'
-
-
 
 @Injectable({
   providedIn: 'root'

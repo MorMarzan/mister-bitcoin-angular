@@ -1,0 +1,23 @@
+@import "../../../assets/styles/setup/variables";
+@import "../../../assets/styles/setup/mixins";
+
+.loader {
+    display: block;
+    width: 200px;
+    margin: 100px auto;
+}
+
+.contact-index {
+    place-content: start;
+
+    .add {
+        margin-block-end: 10px;
+        display: block;
+        justify-self: start;
+
+        button {
+            @include button-style($bgColor: $clrSecondary-1);
+        }
+
+    }
+}
