@@ -7,12 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ContactIndexComponent } from './pages/contact-index/contact-index.component';
 import { ContactListComponent } from './cmps/contact-list/contact-list.component';
+import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
+import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
+import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactIndexComponent,
     ContactListComponent,
+    ContactPreviewComponent,
+    ContactFilterComponent,
+    ContactDetailsComponent,
   ],
   imports: [
     BrowserModule,
