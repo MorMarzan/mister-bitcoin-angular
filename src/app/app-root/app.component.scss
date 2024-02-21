@@ -1,0 +1,6 @@
+@import '../../assets/styles/setup/variables';
+
+main {
+    min-height: calc(100vh - 14vh);
+    background-color: $clrSecondary1;
+}
