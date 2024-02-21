@@ -1,0 +1,56 @@
+// @import "/src/assets/styles/setup/variables.scss";
+// @import "/src/assets/styles/setup/mixins.scss";
+
+// header {
+//     height: 7vh;
+//     background-color: $clrPrimary1;
+
+//     .container {
+//         justify-content: space-between;
+
+//         nav {
+//             display: grid;
+
+//             @include for-mobile-only-layout {
+//                 align-content: start;
+//                 justify-content: center;
+//                 justify-items: center;
+//                 gap: 30px;
+
+//                 position: fixed;
+//                 top: 0;
+//                 right: 0;
+
+//                 height: 100vh;
+//                 width: 55vw;
+//                 padding-block: 7vh;
+//                 background-color: $clrSecondary-2;
+//                 border-inline-start: 1px solid $clrSecondary3;
+
+//                 transform: translateX(100%);
+//                 transition: transform 0.6s, box-shadow 0.6s;
+
+//                 &.open {
+//                     transform: translateX(0);
+//                     box-shadow: -4px 0px 20px rgb(0 0 0 / 31%);
+//                 }
+//             }
+
+//             @include for-narrow-layout {
+//                 grid-auto-flow: column;
+//                 gap: 5px;
+//             }
+
+//             .router-link-exact-active {
+//                 color: $clrPrimary2;
+//                 text-decoration: overline;
+//             }
+//         }
+//     }
+
+//     .hamburger {
+//         @include for-narrow-layout {
+//             display: none;
+//         }
+//     }
+// }
