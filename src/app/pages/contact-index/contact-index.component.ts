@@ -6,7 +6,10 @@ import { Observable, Subscription, take } from 'rxjs';
 @Component({
   selector: 'contact-index',
   templateUrl: './contact-index.component.html',
-  styleUrl: './contact-index.component.scss'
+  styleUrl: './contact-index.component.scss',
+  host: {
+    class: 'main-layout full'
+  }
 })
 export class ContactIndexComponent {
 
