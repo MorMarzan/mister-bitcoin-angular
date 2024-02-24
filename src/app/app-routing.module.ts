@@ -4,6 +4,7 @@ import { ContactIndexComponent } from './pages/contact-index/contact-index.compo
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component'
 import { HomeComponent } from './pages/home/home.component'
 import { StatisticsComponent } from './pages/statistics/statistics.component'
+import { contactResolver } from './resolvers/contact.resolver'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +19,7 @@ const routes: Routes = [
     path: 'contact/:id',
     component: ContactDetailsComponent,
     // canActivate: [authGuard],
-    // resolve: { contact: contactResolver }
+    resolve: { contact: contactResolver }
   },
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', component: PageDontExist }

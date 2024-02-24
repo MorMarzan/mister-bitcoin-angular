@@ -4,7 +4,7 @@
     <p>{{ contact.phone }}</p>
     <div class="btn-container">
         <button (click)="onRemoveContact()">x</button>
-        <!-- <RouterLink :to="`/contact/${contact._id}`"><button>Details</button></RouterLink> -->
-        <!-- <RouterLink :to="`/contact/edit/${contact._id}`"><button>Edit</button></RouterLink> -->
+        <a [routerLink]="['/contact', contact._id]"><button>Details</button></a>
+        <button>Edit</button>
     </div>
 </section>

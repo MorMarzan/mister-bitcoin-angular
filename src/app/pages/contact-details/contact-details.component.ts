@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
+import { ContactService } from '../../services/contact.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, Subscription, map } from 'rxjs';
 
 @Component({
   selector: 'contact-details',
   templateUrl: './contact-details.component.html',
-  styleUrl: './contact-details.component.scss'
+  styleUrl: './contact-details.component.scss',
+  host: {
+    class: 'main-layout full'
+  }
 })
-export class ContactDetailsComponent {
+export class ContactDetailsComponent implements OnDestroy {
+
+  private router = inject(Router)
+  private route = inject(ActivatedRoute)
+
+  destroySubject$ = new Subject<void>()
+  subscription!: Subscription
+
+  contact$ = this.route.data.pipe(map(data => data['contact']))
+
+  onBack() {
+    this.router.navigateByUrl('/contact')
+  }
+
+  ngOnDestroy(): void {
+    this.destroySubject$.next()
+    this.destroySubject$.complete()
+  }
 
 }

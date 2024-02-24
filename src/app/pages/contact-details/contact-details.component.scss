@@ -1,0 +1,23 @@
+@import "../../../assets/styles/setup/variables";
+
+.contact-details {
+    flex-direction: column;
+
+    padding: 20px;
+
+    .transfer-wrapper {
+        border-block-start: 5px double $clrPrimary2;
+        margin-block-start: 30px;
+        padding-block-start: 30px;
+    }
+
+    img {
+        max-width: 170px;
+        margin-block-end: 20px;
+    }
+
+    .back {
+        align-self: end;
+        margin-block-start: auto;
+    }
+}
