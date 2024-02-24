@@ -1,5 +1,4 @@
 import { Component, OnDestroy, inject } from '@angular/core';
-import { ContactService } from '../../services/contact.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription, map } from 'rxjs';
 
@@ -8,7 +7,7 @@ import { Subject, Subscription, map } from 'rxjs';
   templateUrl: './contact-details.component.html',
   styleUrl: './contact-details.component.scss',
   host: {
-    class: 'main-layout full'
+    class: 'main-layout full '
   }
 })
 export class ContactDetailsComponent implements OnDestroy {

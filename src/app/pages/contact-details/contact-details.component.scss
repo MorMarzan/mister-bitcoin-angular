@@ -1,5 +1,9 @@
 @import "../../../assets/styles/setup/variables";
 
+:host {
+    justify-items: center;
+}
+
 .contact-details {
     flex-direction: column;
 
