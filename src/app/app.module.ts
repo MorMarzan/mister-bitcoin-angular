@@ -14,6 +14,7 @@ import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { AppFooterComponent } from './cmps/app-footer/app-footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
+import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
     AppFooterComponent,
     HomeComponent,
     StatisticsComponent,
+    ContactEditComponent,
   ],
   imports: [
     BrowserModule,

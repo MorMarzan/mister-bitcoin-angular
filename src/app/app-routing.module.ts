@@ -5,24 +5,21 @@ import { ContactDetailsComponent } from './pages/contact-details/contact-details
 import { HomeComponent } from './pages/home/home.component'
 import { StatisticsComponent } from './pages/statistics/statistics.component'
 import { contactResolver } from './resolvers/contact.resolver'
+import { ContactEditComponent } from './pages/contact-edit/contact-edit.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'statistics', component: StatisticsComponent },
-  {
-    path: 'contact', component: ContactIndexComponent, children: [
-      // { path: 'edit/:id', component: ContactEditComponent, resolve: { contact: contactResolver } },
-      // { path: 'edit', component: ContactEditComponent },
-    ]
-  },
+  { path: 'contact', component: ContactIndexComponent },
+  { path: 'contact/edit/:id', component: ContactEditComponent, resolve: { contact: contactResolver } },
+  { path: 'contact/edit', component: ContactEditComponent },
   {
     path: 'contact/:id',
     component: ContactDetailsComponent,
-    // canActivate: [authGuard],
     resolve: { contact: contactResolver }
   },
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
-  // { path: '**', component: PageDontExist }
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', component: HomeComponent }
 ]
 
 @NgModule({
