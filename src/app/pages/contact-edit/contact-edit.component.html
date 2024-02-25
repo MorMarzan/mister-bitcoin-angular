@@ -23,7 +23,7 @@
         <ng-container *ngIf="form.controls['name'] as nameInput">
             <p class="errors" *ngIf="nameInput.touched && nameInput.invalid">
                 <span *ngIf="nameInput.errors?.['required']">Name is required!</span>
-                <span *ngIf="nameInput.errors?.['noEnglishLetters']">Only english letters are allowed!</span>
+                <span *ngIf="nameInput.errors?.['notEnglishLetter']">Only english letters are allowed!</span>
                 <span *ngIf="nameInput.errors?.['nameTaken']">Name is already taken!</span>
             </p>
             <span *ngIf="nameInput.pending && nameInput.dirty && nameInput.touched">Fetching for data...</span>
@@ -32,9 +32,9 @@
         <label for="phone">Phone</label>
         <input type="phone" formControlName="phone" id="phone" />
         <ng-container *ngIf="form.controls['phone'] as phoneInput">
-            <!-- <p class="errors" *ngIf="phoneInput.touched && phoneInput.invalid">
-                <span *ngIf="phoneInput.errors?.['max']">Max phone is 120</span>
-            </p> -->
+            <p class="errors" *ngIf="phoneInput.touched && phoneInput.invalid">
+                <span *ngIf="phoneInput.errors?.['required']">Phone is required!</span>
+            </p>
         </ng-container>
 
         <label for="email">Email</label>
@@ -46,7 +46,7 @@
         </ng-container>
 
         <section class="actions">
-            <button [disabled]="form.invalid">Save</button>
+            <button class="submit" [disabled]="form.invalid">Save</button>
             <button type="button" (click)="onBack()">Back</button>
         </section>
     </form>

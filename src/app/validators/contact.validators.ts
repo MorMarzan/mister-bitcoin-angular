@@ -1,31 +1,21 @@
 import { AbstractControl } from "@angular/forms";
-import { debounceTime, map, timer } from "rxjs";
+import { debounceTime, first, map, switchMap, timer } from "rxjs";
+import { ContactService } from "../services/contact.service";
 
-export function noEnglishLetters(control: AbstractControl) {
+export function notEnglishLetter(control: AbstractControl) {
     const isOnlyLetters = (/^[a-zA-Z ]*$/ig).test(control.value)
-    return !isOnlyLetters ? { noEnglishLetters: true } : null
+    return !isOnlyLetters ? { notEnglishLetter: true } : null
 }
 
-
-export function nameTaken(control: AbstractControl) {
-    return timer(1000)
-        .pipe(
+export function nameTaken(contactService: ContactService, contactId: String | null) {
+    console.log('contactId', contactId)
+    return (control: AbstractControl) => {
+        return timer(1000).pipe(
             debounceTime(500),
-            map(() => {
-                if (control.value === 'bobo') return { nameTaken: true }
-                return null
-            })
+            switchMap(() => contactService.contacts$.pipe(first())),
+            map(contacts =>
+                contacts.some(contact =>
+                    (contact.name === control.value) && (!contactId || contact._id !== contactId)) ? { nameTaken: true } : null)
         )
+    }
 }
-
-// export function nameTaken(control: AbstractControl) {
-//     return new Promise(resolve => {
-//         setTimeout(() => {
-//             if (control.value === 'bobo') {
-//                 resolve({ nameTaken: true })
-//             } else {
-//                 resolve(null)
-//             }
-//         }, 1000)
-//     })
-// }

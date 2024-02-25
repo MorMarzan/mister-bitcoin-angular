@@ -4,7 +4,7 @@ import { Subject, filter, map, takeUntil } from 'rxjs';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../models/contact.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { nameTaken, noEnglishLetters } from '../../validators/contact.validators';
+import { nameTaken, notEnglishLetter } from '../../validators/contact.validators';
 
 @Component({
   selector: 'contact-edit',
@@ -26,7 +26,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
   constructor() {
     this.form = this.fb.group({
-      name: ['', [Validators.required, noEnglishLetters], [nameTaken]],
+      name: ['', [Validators.required, notEnglishLetter]],
       phone: ['', [Validators.required]],
       email: ['', [Validators.required]],
     })
@@ -34,14 +34,21 @@ export class ContactEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.data
-      .pipe(
-        map(data => data['contact']),
-        filter(contact => contact)
-      )
+      .pipe(map(data => data['contact']))
       .subscribe(contact => {
-        this.contact = contact
-        this.form.patchValue(contact)
+        if (contact) {
+          this.contact = contact
+          this.form.patchValue(contact)
+        }
+        this.setAsyncValidators(this.contact?._id || null)
       })
+  }
+
+  setAsyncValidators(contactId: string | null) {
+    this.form.get('name')!.setAsyncValidators([
+      nameTaken(this.contactService, contactId)
+    ])
+    this.form.get('name')!.updateValueAndValidity()
   }
 
   onSaveContact() {
