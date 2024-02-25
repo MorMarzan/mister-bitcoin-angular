@@ -1,15 +1,22 @@
 .contact-edit {
-    display: grid;
-    gap: 10px;
-    place-items: start;
-    align-content: start;
     padding: 10px;
     margin-block: 10px;
+
+    form {
+        display: grid;
+        gap: 10px;
+        place-items: start;
+        align-content: start;
+    }
 
     .actions {
         justify-self: end;
         display: grid;
         grid-auto-flow: column;
         gap: 5px;
+    }
+
+    .errors {
+        color: red;
     }
 }
