@@ -1,1 +1,7 @@
-<p>home works!</p>
+<section class="home">
+    <div *ngIf="user" class="user-greeting">
+        <p>Hello <span class="red">{{ user.name }}</span></p>
+        <p>Your balance is <span class="red">{{ user.balance }}₿</span></p>
+        <p>Bitcoin to USD rate is <span class="red">{{ BTC$ | async }}</span></p>
+    </div>
+</section>

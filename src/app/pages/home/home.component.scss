@@ -1,0 +1,22 @@
+@import '../../../assets/styles/setup/variables';
+
+.home {
+    margin-block: 20px;
+
+    .user-greeting {
+        display: grid;
+        gap: 10px;
+
+        button {
+            justify-self: start;
+        }
+
+        img {
+            width: 100px;
+        }
+
+        .red {
+            color: $clrPrimary2;
+        }
+    }
+}
