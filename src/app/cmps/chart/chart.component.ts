@@ -18,6 +18,6 @@ export class ChartComponent {
   }
 
   colorScheme = {
-    domain: ['#F67E7E', '#C4FFFE']
+    domain: ['#F67E7E']
   } as any
 }

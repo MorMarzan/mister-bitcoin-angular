@@ -1,4 +1,9 @@
 .statistics {
+    h3 {
+        margin-block-end: 10px;
+    }
+
+    text-align: center;
     display: grid;
     margin-block: 10px;
     place-content: space-around;
