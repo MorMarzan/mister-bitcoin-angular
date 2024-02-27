@@ -1,10 +1,13 @@
+<div *ngIf="isMobileNavOpen" class="backdrop" (click)="toggleMobileNav()"></div>
 <header class="app-header main-layout full">
     <div class="container flex align-center">
         <h1>Mr. Bitcoin</h1>
-        <nav>
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-            <a routerLink="/contact" routerLinkActive="active">Contacts</a>
-            <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+        <nav [ngClass]="{open: isMobileNavOpen}">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                (click)="toggleMobileNav()">Home</a>
+            <a routerLink="/contact" routerLinkActive="active" (click)="toggleMobileNav()">Contacts</a>
+            <a routerLink="/statistics" routerLinkActive="active" (click)="toggleMobileNav()">Statistics</a>
         </nav>
+        <button *ngIf="isMobile" (click)="toggleMobileNav()" class="hamburger">☰</button>
     </div>
 </header>

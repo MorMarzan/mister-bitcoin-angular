@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppHeaderComponent {
 
+  isMobile = window.innerWidth <= 500
+  isMobileNavOpen = false
+
+  toggleMobileNav() {
+    this.isMobileNavOpen = !this.isMobileNavOpen
+  }
 }
