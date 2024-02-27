@@ -30,10 +30,10 @@ export class BitcoinService {
     const data = storageService.load(this.TRADE_VOLUME_KEY)
 
     if (data) return of(data)
-    return this.http.get<TradeVolume>(`https://api.blockchain.info/charts/trade-volume?timespan=5months&format=json&cors=true`)
+    return this.http.get<TradeVolume>(`https://api.blockchain.info/charts/trade-volume?timespan=5weeks&format=json&cors=true`)
       .pipe(map(res => {
         //prepare the data in a way that the chart can render
-        const vals = res.values.map(item => { return { name: new Date(item.x * 1000).toLocaleDateString("en-US"), value: item.y } })
+        const vals = res.values.map(item => { return { name: new Date(item.x * 1000).toLocaleDateString("he-IL"), value: item.y } })
         storageService.store(this.TRADE_VOLUME_KEY, vals)
         return vals
       }))

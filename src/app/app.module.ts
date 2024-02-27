@@ -15,6 +15,9 @@ import { AppFooterComponent } from './cmps/app-footer/app-footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
+import { ChartComponent } from './cmps/chart/chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -29,13 +32,16 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
     HomeComponent,
     StatisticsComponent,
     ContactEditComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
