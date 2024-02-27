@@ -19,6 +19,11 @@ export class ContactDetailsComponent implements OnDestroy {
   subscription!: Subscription
 
   contact$ = this.route.data.pipe(map(data => data['contact']))
+  isImgLoaded = false
+
+  onImgLoad() {
+    this.isImgLoaded = true
+  }
 
   onBack() {
     this.router.navigateByUrl('/contact')
