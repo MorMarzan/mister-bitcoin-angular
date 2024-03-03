@@ -1,5 +1,6 @@
 export interface User {
     name: string
     balance: number
-    transaction: []
+    transactions: []
+    imgUrl?: string
 }

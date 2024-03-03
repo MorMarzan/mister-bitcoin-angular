@@ -1,0 +1,44 @@
+@import '../../../assets/styles/setup/variables';
+
+.signup {
+    display: grid;
+    gap: 20px;
+    justify-content: start;
+
+    h3 {
+        line-height: 1.2;
+        background: linear-gradient(90deg, $clrPrimary2 0%, $clrPrimary3 50%, $clrPrimary2 100%);
+        background-size: 200% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        animation: shine 10s infinite linear;
+    }
+
+    form {
+        display: grid;
+        justify-items: start;
+        row-gap: 10px;
+        gap: 10px;
+
+        .submit:disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .errors {
+            color: red;
+        }
+    }
+}
+
+@keyframes shine {
+    from {
+        background-position: 200% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}

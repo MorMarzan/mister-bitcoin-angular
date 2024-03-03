@@ -13,13 +13,23 @@ import { BitcoinService } from '../../services/bitcoin.service';
   }
 })
 export class HomeComponent implements OnInit {
-  user!: User
+  user!: User | null
   BTC$!: Observable<string>
 
   constructor(private userService: UserService, private bitcoinService: BitcoinService) { }
 
   ngOnInit(): void {
     this.user = this.userService.getUser()
-    this.BTC$ = this.bitcoinService.getRateStream(this.user.balance)
+    this.BTC$ = this.bitcoinService.getRateStream(this.user?.balance || 1)
   }
+
+  signup(username: string) {
+    this.user = this.userService.signup(username)
+  }
+
+  logout() {
+    this.userService.logout()
+    this.user = null
+  }
+
 }

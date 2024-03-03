@@ -17,7 +17,8 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 import { ChartComponent } from './cmps/chart/chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupComponent } from './cmps/signup/signup.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     StatisticsComponent,
     ContactEditComponent,
     ChartComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

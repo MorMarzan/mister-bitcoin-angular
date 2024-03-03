@@ -1,0 +1,14 @@
+<section class="signup">
+    <h3>Signup to get 100 bitcoins!</h3>
+    <form [formGroup]="form" (ngSubmit)="onSignup()">
+        <label for="name">Name</label>
+        <input autocomplete="off" #elNameInput type="text" formControlName="name" id="name" />
+        <ng-container *ngIf="form.controls['name'] as nameInput">
+            <span class="errors" *ngIf="nameInput.touched && nameInput.invalid">
+                <span *ngIf="nameInput.errors?.['required']">Name is required!</span>
+                <span *ngIf="nameInput.errors?.['notEnglishLetter']">Only english letters are allowed!</span>
+            </span>
+        </ng-container>
+        <button class="submit" [disabled]="form.invalid">Signup</button>
+    </form>
+</section>
