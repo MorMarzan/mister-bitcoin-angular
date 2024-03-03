@@ -1,13 +1,14 @@
 @import "../../../assets/styles/setup/variables";
 
 :host {
-    justify-items: center;
+    justify-items: stretch;
+    min-height: 86vh;
 }
 
 .contact-details {
     flex-direction: column;
 
-    padding: 20px;
+    padding-block: 20px;
 
     .transfer-wrapper {
         border-block-start: 5px double $clrPrimary2;
