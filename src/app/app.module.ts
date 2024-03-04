@@ -18,7 +18,8 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
 import { ChartComponent } from './cmps/chart/chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SignupComponent } from './cmps/signup/signup.component'
+import { SignupComponent } from './cmps/signup/signup.component';
+import { TransferFundsComponent } from './cmps/transfer-funds/transfer-funds.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SignupComponent } from './cmps/signup/signup.component'
     ContactEditComponent,
     ChartComponent,
     SignupComponent,
+    TransferFundsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<section class="transfer-funds">
+    <h4>Transfer to {{ contact.name }}</h4>
+
+    <form [formGroup]="form" (ngSubmit)="onTransfer()">
+        <input #elSumInput type="number" formControlName="sum" id="sum" />
+        <label for="sum">Bitcoins</label>
+        <button class="submit" [disabled]="form.invalid">Transfer</button>
+        <div *ngIf="form.get('sum')?.errors && form.get('sum')?.touched">
+            <p *ngIf="form.get('sum')?.errors?.['required']">Amount is required!</p>
+            <p *ngIf="form.get('sum')?.errors?.['min']">Amount must be more than 0!</p>
+            <p *ngIf="form.get('sum')?.errors?.['maxBalance']">Cannot exceed balance of {{ balance }}!</p>
+        </div>
+    </form>
+
+</section>

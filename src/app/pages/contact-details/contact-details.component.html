@@ -5,5 +5,14 @@
     <h2>{{ contact.name }}</h2>
     <p>{{ contact.email }}</p>
     <p>{{ contact.phone }}</p>
+
+    <div class="transfer-wrapper">
+        <transfer-funds *ngIf="user" [contact]="contact" [balance]="user.balance" (transfer)="transfer($event)" />
+        <!-- <RouterLink v-else to="/">Signup to transfer bitcoins to {{ contact.name }}</RouterLink> -->
+    </div>
+
+    <!-- <TransactionList *ngIf="transactions?.length" :transactions="transactions" /> -->
+
+
     <button (click)="onBack()" class="back">Back</button>
 </section>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { User } from '../models/user.model';
+import { Transaction, User } from '../models/user.model';
 import { storageService } from './storage.service';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class UserService {
   public user$ = this._user$.asObservable()
 
 
-  getUser() {
+  getUser(): User | null {
     return this._user$.value
   }
 
@@ -39,12 +39,21 @@ export class UserService {
     this._user$.next(null)
   }
 
-  // getLoggedinUser() {
-  //   const user = storageService.load(this.KEY)
-  //   if (user) {
-  //     this._user$.next(user)
-  //   }
-  //   return user || null
-  // }
+  transferFunds(toContact: { name: string; _id: string; }, amount: number) {
+    const user = this.getUser()
+    if (!user) throw new Error('Not loggedin')
+    user.balance -= amount
+    const newTransaction: Transaction = { toId: toContact._id, to: toContact.name, at: Date.now(), amount };
+    (user.transactions as Transaction[]).unshift(newTransaction)
+    storageService.store(this.KEY, user)
+    this._user$.next(user)
+  }
+
+  getTransactions(contactId?: string) {
+    const user = this.getUser();
+    if (!user) throw new Error('Not loggedin');
+    const transactions = user.transactions;
+    return (!contactId) ? transactions : transactions.filter(transaction => transaction.toId === contactId);
+  }
 
 }

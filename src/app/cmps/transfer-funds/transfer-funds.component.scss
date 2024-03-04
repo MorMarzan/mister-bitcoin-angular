@@ -1,0 +1,21 @@
+.transfer-funds {
+    display: grid;
+    gap: 10px;
+
+    form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        max-width: 400px;
+    }
+
+    .submit:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .errors {
+        color: red;
+    }
+}
