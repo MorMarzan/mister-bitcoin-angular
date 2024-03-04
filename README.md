@@ -1,27 +1,45 @@
-# MisterBitcoinAngular
+<h1 align="center">Mister Bitcoin Angular💼💰</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+<p align="center">
+  Welcome to <strong>Mister Bitcoin</strong>, your go-to digital wallet simulator app for managing and transferring Bitcoins with ease. Designed as an educational tool and built with the power of Angular.js, this single-page application offers a seamless and interactive experience.<br>
+  <a href="https://github.com/MorMarzan/mister-bitcoin-vue">Cheout a replica of this app in Vue</a>
+</p>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+<h2>🚀 Key Features</h2>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<ul>
+  <li><strong>Bitcoin Transfers:</strong> Transfer Bitcoins from your balance to any contact seamlessly.</li>
+  <li><strong>Contact Management:</strong> Add, edit, and remove contacts with just a few clicks.</li>
+  <li><strong>Live Market Data:</strong> Stay updated with real-time Bitcoin trade volume and exchange rates.</li>
+  <li><strong>Dynamic Charts:</strong> Visualize Bitcoin's market trends with responsive and interactive charts powered by Chart.js.</li>
+</ul>
 
-## Build
+<h2>🛠️ Built With</h2>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<ul>
+  <li><strong>Angular:</strong> For creating a dynamic and interactive user interface.</li>
+  <li><strong>SCSS:</strong> Advanced and maintainable stylesheets with Sass.</li>
+  <li><strong>Angular Router:</strong> Navigation management for single-page applications.</li>
+  <li><strong>RxJS:</strong> Reactive programming for handling asynchronous data streams.</li>
+</ul>
 
-## Running unit tests
+<h2>🌟 Getting Started</h2>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<p>To explore Mister Bitcoin, <a href="https://mormarzan.github.io/mister-bitcoin-angular/#/">visit this link</a></p>
 
-## Running end-to-end tests
+<p>Or, run it locally:</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<pre><code>npm install       # Install dependencies
+npm run dev       # Run the app in development mode</code></pre>
 
-## Further help
+<h2>🔧 Project Status</h2>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<p>This project is my first venture into Vue.js. It's a testament to my learning journey and dedication to building functional and user-friendly applications. Feedback and contributions are welcome!</p>
+
+<h2>💬 Feedback</h2>
+
+<p>Your feedback is invaluable. Please feel free to <a href="https://github.com/mormarzan/mister-bitcoin/issues">open an issue</a> or submit a pull request with your suggestions or improvements.</p>
+
+<h3 align="center">Happy Bitcoin managing! 🚀💸</h3>
