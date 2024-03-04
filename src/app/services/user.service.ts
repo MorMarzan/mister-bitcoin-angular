@@ -39,12 +39,12 @@ export class UserService {
     this._user$.next(null)
   }
 
-  getLoggedinUser() {
-    const user = storageService.load(this.KEY)
-    if (user) {
-      this._user$.next(user)
-    }
-    return user || null
-  }
+  // getLoggedinUser() {
+  //   const user = storageService.load(this.KEY)
+  //   if (user) {
+  //     this._user$.next(user)
+  //   }
+  //   return user || null
+  // }
 
 }
