@@ -31,8 +31,10 @@
 
 <p>Or, run it locally:</p>
 
-<pre><code>npm install       # Install dependencies
-ng s -o       # Run the app in development mode</code></pre>
+<pre><code>
+npm install      # Install dependencies
+ng s -o          # Run the app in development mode
+</code></pre>
 
 <h2>🔧 Project Status</h2>
 
